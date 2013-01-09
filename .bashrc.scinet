@@ -1,0 +1,50 @@
+if [ -f /etc/bashrc ]; then
+       . /etc/bashrc
+fi
+
+# commands which work for both GPC and TCS can go here
+
+HOST=$(uname)
+
+if [ "${HOST}" == "AIX" ]; then
+	# do things for the TCS machine
+	# user environment for all shells goes here
+	# replace colon with your own commands
+	:
+else
+	# do things for the GPC machine
+
+	module load intel openmpi
+
+	# user environment for all shells goes here
+	# replace colon with your own commands
+	:
+fi
+#fast cd
+alias scratch="cd /scratch/c/camon/schuberm/"
+alias home="cd /home/c/camon/schuberm/"
+
+#colours
+PS1="\[\033[1;34m\][\$(date +%H%M)][\u@\h:\w]$\[\033[0m\] "
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+#dotted line
+export PROMPT_COMMAND='q="- $(date +%T)"; while [[ ${#q} -lt $COLUMNS ]]; do q="${q:0:1}$q"; done; echo -e "\033[0;90m$q\033[0;37m";'
+
+#ctrl r sup
+HISTFILESIZE=40000
+HISTSIZE=40000
+HISTTIMEFORMAT="[%Y-%m-%d %H:%M:%S] "
+HISTCONTROL="ignoreboth"
+
+#gulp
+export PATH="$PATH:/home/c/camon/schuberm/gulp/Src"
+
+#modules
+module load gcc
+module load python
+module load gnuplot
+module load hdf5
+module load gotoblas
+module load octave

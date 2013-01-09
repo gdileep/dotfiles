@@ -1,0 +1,114 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+ . /etc/bashrc
+fi
+
+# User specific aliases and functions
+source /etc/profile.d/modules.sh
+
+# Add kitchingroup and my own  specific moduleshome
+export MODULEPATH=/opt/kitchingroup/user-modules/:/opt/modulefiles/
+
+# kitchingroup/user-modules/ modules 
+# module load vim-7.3 git-1.7.3.4
+
+# opt/modulefiles/ modules 
+module load aliases dot matlab 
+module load xemacs-21.4.22
+module load emacs23
+module load maui
+module load use.own
+
+#module load openmpi/intel_qlc
+
+# Load Python Modules
+module load blas-lapack-atlas-gcc
+module load intel/intel64
+module load python/python-2.6.5
+module load python/mypython
+module load python/ipython-0.10
+module load python/numpy-1.5.0b1-intel-64bit
+#module load python/numpy-1.5.0b1-gcc
+module load python/scipy-0.80-gcc
+module load python/matplotlib-1.1.0
+module load python/ScientificPython2.8
+#module load python/ase-svn-r1777
+module load python/torque-r214
+module load python/htp-r214
+module load python/pygtk
+module load vtk-5.6.0
+module load wxpython
+
+# Load Molecular Simulation Codes
+# module load vasp-kitchingroup
+module load acml4.0.1
+module load openmpi-psm-gcc 
+module load molsim-06640-f12
+#module load dacapo-j-v2-3-5
+#module load python/jacapo-r1777
+#module load gpaw-0.7.2.6974
+#module load gaussian09
+#module load asap-3.3.5
+module load atat-2.71
+
+module load sqlite3
+
+ulimit -s unlimited
+
+#export ISODATA=/home/jkitchin/mypython/dacapox/jacapo/symmetry/isotropy-src
+
+# Set env variables
+export PATH=~/bin:$PATH
+#export PATH=~/bin/atat:$PATH
+
+module unload python/numpy-1.5.0b1-gcc
+
+
+module unload openmpi/intel_qlc
+module load openmpi-psm-gcc
+
+
+export PATH=/home/jason/phonopy/phonopy-1.1/lib/python:$PATH
+export PATH=/home/jason/phonopy/phonopy-1.1/bin:$PATH
+export PYTHONPATH=/home/jason/phonopy/phonopy-1.1/lib/python:$PYTHONPATH
+
+export PATH=/home/jason/lammps/lammps-30Nov10/src:$PATH
+
+export PATH=/opt/intel/Compiler/11.1/072/mkl/lib/em64t/:$PATH
+export PATH=/opt/intel/Compiler/11.1/072/mkl/include/fftw/:$PATH
+export PATH=/opt/intel/Compiler/11.1/072/mkl/include/:$PATH
+export PATH=/opt/intel/Compiler/11.1/072/lib/intel64/:$PATH
+export PATH=/opt/intel/Compiler/11.1/072/bin/intel64/:$PATH
+
+export LD_LIBRARY_PATH=/opt/intel/Compiler/11.1/072/mkl/lib/em64t/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/intel/Compiler/11.1/072/mkl/include/fftw/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/intel/Compiler/11.1/072/mkl/include/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/intel/Compiler/11.1/072/lib/intel64/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/opt/intel/Compiler/11.1/072/bin/intel64/:$LD_LIBRARY_PATH
+
+export BIN_DIR=/home/jason/qe/espresso-4.3.2/bin/
+export PSEUDO_DIR=/home/jason/qe/espresso-4.3.2/pseudo/
+export TMP_DIR=/home/jason/tmp/
+
+#g95
+export PATH=/opt/mcgaugheygroup/g95/g95-install/bin/:$PATH
+
+#matlab
+export PATH=/opt/mcgaugheygroup/matlab_R2011a/work/:$PATH
+export PATH=/opt/mcgaugheygroup/matlab_R2011a/work/af:$PATH
+export PATH=/home/jason/disorder/matlab:$PATH
+export PATH=/home/jason/matlab/superlattice:$PATH
+
+
+#ATLAS
+#export PATH=/opt/atlas/ATLAS/ATLAS_gilgamesh/lib/:$PATHs
+#export PATH=/opt/atlas/ATLAS/ATLAS_gilgamesh/src/lapack/:$PATH
+
+#gulp
+export PATH=/opt/mcgaugheygroup/gulp-4.0.5/Src/:$PATH
+
+#du ./ -hc > diskuse.txt
+
+
